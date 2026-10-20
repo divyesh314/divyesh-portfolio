@@ -1,0 +1,182 @@
+:root {
+  --black: #000; --chalk: #f2efe9; --dim: #9b978f; --paper: #e8e4db; --ink: #1c1b19;
+  --green: #2fa35a; --red: #d93b3f; --tape: rgba(236, 228, 200, .78);
+  --sans: 'Archivo Variable', system-ui, sans-serif; --serif: 'EB Garamond', Georgia, serif;
+  --type: 'Special Elite', 'Courier New', monospace; --sig: 'Mrs Saint Delafield', cursive;
+}
+* { box-sizing: border-box; margin: 0; padding: 0 }
+html { scroll-behavior: smooth; color-scheme: dark }
+body { background: var(--black); color: var(--chalk); font-family: var(--sans); overflow-x: hidden; -webkit-font-smoothing: antialiased }
+img { display: block; max-width: 100% }
+a { color: inherit }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0 }
+:focus-visible { outline: 2px solid var(--chalk); outline-offset: 3px }
+.sig { font-family: var(--sig); font-weight: 400; letter-spacing: 0 }
+.type { font-family: var(--type); font-size: .78rem; opacity: .7; margin-bottom: .6em }
+
+/* header */
+.top { position: fixed; inset: 0 0 auto; z-index: 20; text-align: center; padding: 14px; background: linear-gradient(#000 40%, transparent); pointer-events: none }
+.top a { pointer-events: auto; text-decoration: none; font-size: 2.1rem }
+
+/* hero: a typographic collage, positioned in vw so it scales as one piece */
+.hero { position: relative; height: max(52vw, 620px); max-width: 1900px; margin: 0 auto; overflow: hidden }
+.hero > * { position: absolute }
+.h-name { left: 16%; top: 14%; display: flex; align-items: flex-start }
+.h-D { font: italic 800 23vw/.78 var(--sans); color: transparent; -webkit-text-stroke: 1.5px var(--chalk) }
+.h-ivyesh { font: italic 850 8.2vw/1 var(--sans); letter-spacing: -.03em; margin: .06em 0 0 -.5em }
+.h-sp { font-size: clamp(13px, 1.05vw, 19px); letter-spacing: .6em; font-weight: 300 }
+.h-based { left: 58%; top: 21% }
+.h-role { right: 7%; top: 17%; writing-mode: vertical-rl; font: 850 6.4vw/.92 var(--sans); letter-spacing: -.02em; display: flex; flex-direction: column; gap: 1.4vw }
+.h-role span:last-child { font-style: italic; font-weight: 300 }
+.h-photo { left: 40%; top: 32%; width: 22vw; height: auto; aspect-ratio: 1; object-fit: cover; filter: contrast(1.05) }
+.h-who { left: 16.5%; top: 55% }
+.h-big { font: italic 300 3.6vw/1 var(--sans); letter-spacing: .32em }
+.h-ideas { left: 16.5%; top: 79% }
+.h-into { left: 39%; top: 79% }
+.h-systems { left: 54%; top: 72%; font: 8vw/1 var(--sig) }
+.h-arrow { right: 27%; top: 52%; font: 200 3rem var(--sans); text-decoration: none; animation: bob 2.4s ease-in-out infinite }
+@keyframes bob { 50% { transform: translateY(10px) } }
+
+/* notebook */
+.nb { position: relative; min-height: 100svh; display: grid; place-items: center; padding: 110px 20px 90px }
+.label { position: absolute; top: 90px; right: 0; font: 1.05rem/1.2 var(--type); color: var(--ink); background: var(--paper); padding: 14px 34px 14px 26px; clip-path: polygon(3% 0, 100% 4%, 100% 100%, 0 96%, 2% 50%) }
+.side { position: absolute; right: 5%; bottom: 22px; font: .8rem/1.4 var(--type); text-align: center }
+.pen { position: absolute; left: 13%; bottom: -10px; width: 22px; height: 300px; rotate: -24deg; border-radius: 11px 11px 4px 4px;
+  background: linear-gradient(90deg, #1b1d2b, #4a4f6a 45%, #15161f) ; box-shadow: 0 0 0 1px #000 }
+.pen::before { content: ''; position: absolute; inset: 70px 0 auto; height: 50px; background: linear-gradient(90deg, #888, #eee 45%, #777) }
+.pen::after { content: ''; position: absolute; left: 4px; top: -26px; border: 7px solid transparent; border-bottom: 26px solid #c7c7c7 }
+
+.cover { position: relative; width: min(470px, 84vw); aspect-ratio: .72; padding: 28px 22px; border-radius: 8px 14px 14px 8px;
+  background: radial-gradient(circle at 30% 20%, #2b2925, #141311 70%); box-shadow: inset 6px 0 0 #0a0a09, 0 30px 60px rgba(0,0,0,.6), 0 0 0 1px #333;
+  display: flex; flex-wrap: wrap; align-content: space-evenly; justify-content: center; gap: 10px 8px; transition: transform .35s }
+.cover:hover { transform: translateY(-6px) rotate(-1deg) }
+.stk { font: 800 clamp(.8rem, 2vw, 1.25rem)/1 var(--sans); padding: .55em .8em; box-shadow: 0 2px 4px rgba(0,0,0,.45) }
+.s0 { border-radius: 6px } .s1 { border-radius: 99px; font-style: italic } .s2 { border-radius: 2px; outline: 2px dashed currentColor; outline-offset: -6px }
+.s3 { clip-path: polygon(4% 0, 100% 6%, 96% 100%, 0 92%); font-family: var(--type); font-weight: 400 }
+.hello { background: #e5484d; color: #fff; border-radius: 10px; padding: 8px 8px 10px; text-align: center; rotate: 4deg; width: 62% }
+.hello small { display: block; font: 800 .75rem var(--sans); margin-bottom: 6px }
+.hello b { display: block; background: #fff; color: #111; font-size: clamp(2rem, 6vw, 3.2rem); padding: 0 6px; border-radius: 4px }
+.tape { position: absolute; left: 6%; right: 6%; top: 44%; padding: 10px; background: var(--tape); color: #111; font: clamp(1.6rem, 5vw, 2.6rem) var(--type); rotate: -4deg;
+  clip-path: polygon(0 8%, 3% 0, 97% 4%, 100% 0, 99% 92%, 96% 100%, 2% 96%, 0 100%) }
+
+.book-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(8px, 2vw, 30px) }
+.flip { font-size: 2.2rem; padding: 10px } .flip:disabled { opacity: .2; cursor: default }
+.pg-no { grid-column: 2; text-align: center; font: .8rem var(--type); color: var(--dim) }
+.book { display: grid; grid-template-columns: 1fr 1fr; width: min(1080px, 82vw); aspect-ratio: 1.45; padding: 10px; border-radius: 12px;
+  background: #2a2826; box-shadow: 0 40px 80px rgba(0,0,0,.7), inset 0 0 0 1px #3a3733; animation: turn .55s cubic-bezier(.2,.7,.2,1) }
+@keyframes turn { from { transform: perspective(1800px) rotateY(-12deg); opacity: 0 } }
+.page { position: relative; overflow: hidden; padding: clamp(18px, 2.8vw, 42px); font-family: var(--serif) }
+.paper { background: var(--paper) radial-gradient(circle at 70% 30%, #f3f0e8, transparent 60%); color: var(--ink); border-radius: 6px 0 0 6px; box-shadow: inset -24px 0 30px -24px rgba(0,0,0,.45) }
+.dark { background: #111; color: var(--chalk); border-radius: 0 6px 6px 0; box-shadow: inset 24px 0 30px -24px rgba(0,0,0,.9) }
+.pg-title { font: italic 800 clamp(1.4rem, 2.4vw, 2.3rem)/1.05 var(--sans); letter-spacing: -.02em; margin-bottom: .35em }
+.pg-line { font-style: italic; font-size: clamp(1rem, 1.3vw, 1.2rem); margin-bottom: .9em }
+.pg-body { font-size: clamp(.9rem, 1.05vw, 1.02rem); line-height: 1.5; max-width: 52ch }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 1.1em 0 }
+.chips li { font: .75rem var(--type); border: 1px solid currentColor; border-radius: 99px; padding: 3px 10px }
+.links { display: flex; gap: 18px; flex-wrap: wrap; font: 1rem var(--sans); font-weight: 600 }
+
+.snap { position: relative; display: block; background: #f5f3ee; padding: 6px; box-shadow: 0 8px 18px rgba(0,0,0,.45) }
+.snap::before { content: ''; position: absolute; z-index: 1; left: 50%; top: -10px; width: 70px; height: 22px; translate: -50%; rotate: -5deg; background: var(--tape) }
+.snap img { width: 100%; height: 100%; object-fit: cover }
+.collage { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-content: center }
+.collage .snap img { aspect-ratio: 1.6; filter: grayscale(1); transition: filter .4s }
+.collage .snap:hover img { filter: none }
+.collage .big { grid-column: span 2; rotate: -1deg } .c1 { rotate: 2deg } .c2 { rotate: -2.5deg }
+.hint { position: absolute; right: 18px; bottom: 10px; font: .75rem var(--sans); color: var(--dim) }
+@media (hover: none) { .collage .snap img { filter: none } .hint { display: none } }
+
+.about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px 22px; align-content: start }
+.polaroid { rotate: -3deg; aspect-ratio: .8 } .polaroid::before { left: 30% }
+.pass { background: #f6f4ef; padding: 12px 14px; rotate: 2deg; box-shadow: 0 6px 14px rgba(0,0,0,.2); font-family: var(--type); align-self: start }
+.route { font: 800 clamp(1rem, 1.6vw, 1.35rem) var(--sans); margin-bottom: 8px } .route span { font-weight: 300 }
+.pass dl { display: grid; gap: 4px; font-size: .78rem } .pass dt { opacity: .6 }
+.biz { grid-column: 2; background: #fff; padding: 12px 14px; rotate: -2deg; box-shadow: 0 6px 14px rgba(0,0,0,.2); display: grid; gap: 2px; margin-top: -60px; align-self: end }
+.biz b { font-size: 1.1rem; font-weight: 500 } .biz small { font-variant: small-caps; letter-spacing: .1em } .biz span { font: .72rem/1.5 var(--type); margin-top: 6px }
+.hi { grid-column: span 2; text-align: center; font-size: clamp(.86rem, 1vw, 1rem); line-height: 1.45; display: grid; gap: .5em; max-width: 46ch; margin: 0 auto }
+.cover-r { display: grid; place-items: center; text-align: center; gap: 8px }
+.giant { font: 400 clamp(2.4rem, 5.6vw, 5rem)/1 var(--serif); letter-spacing: .06em }
+.tall { width: 62%; aspect-ratio: .85; margin-top: -.9em } .tall img { filter: grayscale(1) }
+.tag { font: 1.1rem var(--serif); letter-spacing: .12em } .tag .sig { font-size: 2.4rem; vertical-align: -6px }
+
+.jobs { list-style: none; display: grid; gap: 1.1em; margin-top: .6em }
+.jobs h4 { font: 700 1.05rem var(--sans) } .jobs i { font-weight: 400 }
+.jobs p:last-child { font-size: clamp(.86rem, 1vw, .98rem); line-height: 1.45 }
+.light { color: var(--chalk) }
+.stamp { position: absolute; left: clamp(18px, 2.8vw, 42px); bottom: 34px; rotate: -8deg; border: 3px double var(--red); color: var(--red); padding: 6px 16px; font: 1.5rem var(--type); letter-spacing: .12em; opacity: .85 }
+.tool { border-top: 1px solid #333; padding: .8em 0 }
+.tool h4 { font: 400 .8rem var(--type); color: var(--dim); margin-bottom: .3em } .tool p { font: 600 clamp(.95rem, 1.3vw, 1.2rem)/1.35 var(--sans) }
+
+/* desk */
+.desk { position: relative; min-height: 760px; margin: 60px 4vw; display: grid; place-items: center; overflow: hidden; border-radius: 4px;
+  background: linear-gradient(transparent 99%, rgba(255,255,255,.14) 0) 0 0/100px 100px, linear-gradient(90deg, transparent 99%, rgba(255,255,255,.14) 0) 0 0/100px 100px,
+  linear-gradient(transparent 94%, rgba(255,255,255,.06) 0) 0 0/20px 20px, linear-gradient(90deg, transparent 94%, rgba(255,255,255,.06) 0) 0 0/20px 20px, #1d2826 }
+.desk::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 75% 20%, rgba(255,214,140,.32), transparent 55%); opacity: 0; transition: opacity .5s }
+.desk.lit::after { opacity: 1 }
+.desk svg { position: absolute; filter: drop-shadow(0 14px 14px rgba(0,0,0,.5)) }
+.coffee { width: 210px; left: 4%; top: 8% } .phones { width: 230px; right: 6%; top: 6%; rotate: 18deg } .gloves { width: 300px; right: 3%; bottom: 4%; rotate: -10deg }
+.note { position: relative; z-index: 1; width: min(600px, 82vw); aspect-ratio: 1.12; display: flex; background: #fbfaf7 repeating-linear-gradient(transparent 0 31px, #cfd6e6 31px 32px);
+  color: #222; rotate: -1.5deg; box-shadow: 0 30px 50px rgba(0,0,0,.5) }
+.spine { writing-mode: vertical-rl; rotate: 180deg; background: #111; color: #eee; font: .85rem var(--type); text-align: center; padding: 0 10px }
+.note pre { flex: 1; padding: 34px 28px; font: 1.12rem/32px var(--type); white-space: pre-wrap }
+.caret { display: inline-block; width: 2px; height: 1.1em; background: #222; vertical-align: -3px; animation: blink 1s steps(1) infinite }
+@keyframes blink { 50% { opacity: 0 } }
+.lamp { position: absolute; z-index: 2; right: 14%; top: 46%; background: var(--red); color: #fff; font: 800 .75rem var(--sans); padding: 6px 12px; border-radius: 99px }
+.lamp.on { background: var(--green) }
+
+/* contact + booking */
+.contact { display: grid; place-items: center; padding: 80px 20px 40px }
+.card { width: min(680px, 92vw); aspect-ratio: 1.75; background: #e6e3dc; color: #222; display: grid; place-items: center; align-content: center; gap: 28px; position: relative;
+  font-family: var(--serif); rotate: -1deg; box-shadow: 0 30px 60px rgba(255,255,255,.04), 0 30px 60px rgba(0,0,0,.8) }
+.card h2 { font: 400 clamp(1.8rem, 5vw, 3.2rem) var(--serif) }
+.card-btn { border: 1.5px solid #333; padding: 10px 34px; text-align: center; text-decoration: none; font-size: clamp(1.1rem, 2.4vw, 1.6rem) }
+.card-btn small { display: block; font-size: .7rem; letter-spacing: .14em; font-variant: small-caps }
+.card-btn:hover { background: #222; color: #e6e3dc }
+.card-in { position: absolute; right: 24px; bottom: 16px; font-size: 1rem; text-decoration: none }
+
+.book-me { width: min(920px, 100% - 32px); margin: 40px auto 120px }
+.book-me h2 { font: italic 800 clamp(1.8rem, 4vw, 2.8rem) var(--sans); letter-spacing: -.02em }
+.sub { color: var(--dim); margin: .4em 0 1.6em; font-family: var(--serif); font-size: 1.15rem }
+.days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin }
+.days button { flex: 0 0 auto; border: 1px solid #333; border-radius: 8px; padding: 8px 14px; font-weight: 600; text-align: left }
+.days small { display: block; font: .72rem var(--type); color: var(--dim) }
+.days .on { background: var(--chalk); color: #000 } .days .on small { color: #444 }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin: 18px 0 }
+.slots button { border-radius: 8px; padding: 12px; font-weight: 700; border: 1.5px solid; text-align: left }
+.slots small { display: block; font: .72rem var(--type); margin-top: 2px }
+.green { border-color: var(--green); color: #7fe0a0; background: rgba(47,163,90,.12) }
+.green:hover, .green.picked { background: var(--green); color: #04150a }
+.red { border-color: var(--red); color: #ff9597; background: rgba(217,59,63,.14); cursor: not-allowed }
+.bk-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.bk-form input { font: inherit; color: inherit; background: #0d0d0d; border: 1px solid #333; border-radius: 8px; padding: 12px 14px }
+.bk-form input[name=note] { grid-column: span 2 }
+.bk-form button { grid-column: span 2; background: var(--chalk); color: #000; border-radius: 8px; padding: 14px; font-weight: 800 }
+.bk-form button:disabled { opacity: .35; cursor: default }
+.msg { margin-top: 12px; min-height: 1.4em; font-family: var(--serif); font-size: 1.1rem }
+
+.foot { border-top: 1px solid #333; padding: 30px 12% 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px 40px; align-items: end }
+.foot .sig { font-size: 2rem }
+.foot nav { display: grid; grid-template-columns: auto auto; gap: 14px 60px; font: .85rem var(--sans); letter-spacing: .4em }
+.foot p { grid-column: span 2; text-align: center; font-size: .62rem; letter-spacing: .4em; text-transform: uppercase; color: var(--dim); margin-top: 20px }
+
+/* phones & small tablets: the collage becomes a flow, the book stacks its pages */
+@media (max-width: 900px) {
+  .hero { height: auto; padding: 110px 20px 60px; display: flex; flex-direction: column; gap: 14px }
+  .hero > * { position: static }
+  .h-D { font-size: 44vw } .h-ivyesh { font-size: 17vw }
+  .h-role { writing-mode: horizontal-tb; font-size: 12vw; order: 2; flex-direction: column; gap: 0 }
+  .h-photo { width: 70%; order: 3; align-self: flex-end }
+  .h-who, .h-ideas, .h-into, .h-systems { order: 4 }
+  .h-big { font-size: 9vw } .h-systems { font-size: 22vw } .h-arrow { display: none }
+  .label { position: static; justify-self: end; margin: -40px -20px 20px 0; font-size: .85rem } .side, .pen { display: none }
+  .lamp { right: auto; left: 16px; top: auto; bottom: 16px } .note { aspect-ratio: .8 }
+  .stamp { position: static; display: inline-block; margin-top: 18px }
+  .book-wrap { grid-template-columns: 1fr 1fr } .book-wrap .book { grid-column: span 2; grid-row: 1 }
+  .flip.prev { grid-row: 2 } .flip.next { grid-row: 2; justify-self: end } .pg-no { grid-row: 3; grid-column: span 2 }
+  .book { grid-template-columns: 1fr; width: 92vw; aspect-ratio: auto }
+  .paper { border-radius: 6px 6px 0 0 } .dark { border-radius: 0 0 6px 6px; min-height: 420px }
+  .desk { min-height: 640px } .coffee { width: 130px; left: -20px } .phones { width: 150px; right: -20px } .gloves { width: 190px; right: -30px }
+  .card { aspect-ratio: auto; padding: 50px 20px 60px }
+  .bk-form { grid-template-columns: 1fr } .bk-form input[name=note], .bk-form button { grid-column: auto }
+  .foot { padding: 30px 20px 18px; grid-template-columns: 1fr } .foot p { grid-column: auto }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important } }
